@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Вирус обнаружен!</title>
+    <script>
+        let prankActive = true;
+
+        function glitch() {
+            if (!prankActive) return;  // Если пранк закончился — не делаем глитчи
+            document.body.style.backgroundColor = "red";
+            document.body.innerHTML = "<h1 style='color:white;text-align:center;font-size:50px;'>⚠ Вирус найден! ⚠</h1>";
+            setTimeout(() => {
+                document.body.style.backgroundColor = "black";
+                document.body.innerHTML = "<h1 style='color:red;text-align:center;font-size:50px;'>Система повреждена!</h1>";
+            }, 500);
+            setTimeout(glitch, 1000);
+        }
+
+        function start() {
+            alert("Ошибка: система повреждена!");
+            setTimeout(glitch, 2000);
+
+            // Остановить "глюки" и показать текст "Это пранк"
+            setTimeout(() => {
+                prankActive = false; // Отключаем глитчи
+                document.body.style.backgroundColor = "green";
+                document.body.innerHTML = "<h1 style='color:white;text-align:center;font-size:50px;'>😂 Это пранк! 😂</h1>";
+            }, 7000);
+        }
+    </script>
+</head>
+<body onload="start()">
+    <h1 style="text-align:center;">Загрузка...</h1>
+</body>
+</html>
