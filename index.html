@@ -1,35 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Virus detected</title>
-    <script>
-        let prankActive = true;
-
-        function glitch() {
-            if (!prankActive) return;  // Если пранк закончился — не делаем глитчи
-            document.body.style.backgroundColor = "red";
-            document.body.innerHTML = "<h1 style='color:white;text-align:center;font-size:50px;'>⚠ Virus detected! ⚠</h1>";
-            setTimeout(() => {
-                document.body.style.backgroundColor = "black";
-                document.body.innerHTML = "<h1 style='color:red;text-align:center;font-size:50px;'>System error!</h1>";
-            }, 500);
-            setTimeout(glitch, 1000);
-        }
-
-        function start() {
-            alert("Error: system damaged");
-            setTimeout(glitch, 2000);
-
-            // Остановить "глюки" и показать текст "Это пранк"
-            setTimeout(() => {
-                prankActive = false; // Отключаем глитчи
-                document.body.style.backgroundColor = "green";
-                document.body.innerHTML = "<h1 style='color:white;text-align:center;font-size:50px;'>😂 Its a prank! 😂</h1>";
-            }, 7000);
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body onload="start()">
-    <h1 style="text-align:center;">Loading...</h1>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" disabled>
+    <div class="buttons">
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="appendValue('(')">(</button>
+      <button onclick="appendValue(')')">)</button>
+      <button onclick="appendValue('/')">÷</button>
+
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('*')">×</button>
+
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="appendValue('-')">−</button>
+
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="appendValue('+')">+</button>
+
+      <button onclick="appendValue('0')">0</button>
+      <button onclick="appendValue('.')">.</button>
+      <button onclick="calculate()">=</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
